@@ -1,0 +1,35 @@
+name: r-pipeline
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  # R core + Jupyter kernel
+  - r-base=4.3
+  - r-irkernel
+
+  # Your requested packages (conda-forge names)
+  - r-tidyverse
+  - r-haven
+  - r-lme4
+  - r-jtools
+  - r-ggstance
+  - r-effects
+  - r-eha
+  - r-discsurv
+  - r-ecdat
+  - r-mgcv
+  - r-ggplot2
+
+  # Stan via cmdstanr (modern backend for brms)
+  - r-cmdstanr
+  - cmdstan
+
+  # toolchain (for packages that need C/C++)
+  - gxx_linux-64
+  - gcc_linux-64
+  - make
+  - pkg-config
+
+  # optional
+  - pandoc
+  - pip

@@ -1,0 +1,10 @@
+name: pregnancy_env
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - statsmodels
+  - ipykernel
+  - notebook
+  - papermill
+prefix: /home/stt/miniforge3/envs/pregnancy_env

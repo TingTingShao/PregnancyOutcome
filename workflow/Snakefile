@@ -1,0 +1,40 @@
+
+workdir: ".."                     
+configfile: "config/config.yaml"
+
+include: "rules/preprocess_data.smk"
+include: "rules/prepare_data.smk"
+include: "rules/run_models.smk"
+include: "rules/generate_preds.smk"
+include: "rules/evaluate_models.smk"
+include: "rules/plot.smk"
+
+
+onstart:
+    print("\n--- Analysis started ---\n")
+    print("Top-level keys:", list(config.keys()))
+
+
+onsuccess:
+    print("\n--- Analysis finished ---\n")
+
+onerror:
+    print("\n--- Analysis failed ---\n")
+
+
+rule all:
+    input:
+        #"/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/tables/metrics_post_feats_ml_refit.csv",   
+        #"/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/tables/metrics_post_cycle_mclernon_refit.csv", 
+        #"/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/tables/metrics_post_cycle_bart_sparse.csv",  
+        #"/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/tables/preds_rsf.pkl", 
+        #"/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/tables/metrics_post_cycle.csv",
+        #"/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/bart_data/bart_preds.out",
+        #sda_data="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/dsa_data.pkl",
+        #bart_test_transfer_post="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/bart_test_transfer_post.csv",
+        #mclernon_data_for_refit="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/mclernon_data_for_refit.pkl",
+        #bart_te_post="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/bart_data_te_post_feats_ml_refit.csv",
+        #rsf_model="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/rsf_model.pkl",
+        #dsa_model="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/dsa_model.pkl",
+        #mclernon_model_refit="/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/data/mclernon_model_refit.pkl",
+        "/mnt/c/Users/u0155664/OneDrive - KU Leuven/phd/1_projects/pregnancy_outcome/analysis/submission/Figure5.png",
